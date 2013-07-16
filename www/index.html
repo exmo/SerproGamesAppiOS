@@ -129,7 +129,9 @@
 
 <script>
 
-	var DOMINIO = "http://fislgames-exmo.rhcloud.com";
+	//var DOMINIO = "http://fislgames-exmo.rhcloud.com";
+    var DOMINIO = "http://192.168.0.162:9000";
+    
 	var MSG_SEM_INTERNET  = "Sem conexão internet." +
 							"Verifique sua configuração de rede e tente novamente mais tarde."
 
@@ -236,24 +238,64 @@
 				return false;
 			}
 
-			var itens = texto.split("#");
-			
-			var tipo = itens[1];
-			var id = itens[2];
-            var texto = itens[3];
-			var pontos = itens[4];			
-			var a = itens[5];
-			var b = itens[6];
-			var c = itens[7];
-			var d = itens[8];
-			
-			insertQRCode(id,texto,tipo,pontos,a,b,c,d,exibirQRCodeInfo);
+            salvarQRCode(texto);
+                                           
 		}, function(error) {
             console.log(error);
 			alert("Ocorreu um erro na leitura do QR-Code. Tenta novamente.");
 		});
         $.mobile.loading('hide');
 	}
+    
+    function salvarQRCode(textoQRCode){
+        var itens = textoQRCode.split("#");
+        var tipo = itens[1];
+        var id = itens[2];
+        
+        if(tipo == "JSON"){
+            obterQRCode(id);
+        }else{
+            var texto = itens[3];
+            var pontos = itens[4];
+            var a = itens[5];
+            var b = itens[6];
+            var c = itens[7];
+            var d = itens[8];
+            insertQRCode(id,texto,tipo,pontos,a,b,c,d,exibirQRCodeInfo);
+        }
+    }
+    
+    function obterQRCode(id){
+        $.mobile.loading('show');
+        console.log("Vai buscar o qrcode: "+id);
+        console.log("URL: "+DOMINIO+"/qrcode/json/"+id+"?callback=?");
+        $.jsonp({
+                "url": DOMINIO+"/qrcode/json/"+id+"?callback=?",
+                "success": function(response, textStatus) {
+                    console.log("Obteve o JSON para o qrcode: "+id);
+                    console.log("Response: "+response);
+                    $.mobile.loading('hide');
+                    if (response.status == "ERROR") {
+                        alert(response.msgRet);
+                    }else{
+                        var tipo = response.tipo;
+                        var texto = response.texto;
+                        var pontos = response.pontuacao;
+                        var a = response.resposta;
+                        var b = response.alternativa1;
+                        var c = response.alternativa2;
+                        var d = response.alternativa3;
+                        insertQRCode(id,texto,tipo,pontos,a,b,c,d,exibirQRCodeInfo);                
+                    }
+	        	},
+                "error": function(xOptions, textStatus) {
+                    console.log("Falha ao tentar obter o QRCode");
+                    $.mobile.loading('hide');
+                    alert("Ocorreu um erro na leitura do QR-Code. " + MSG_SEM_INTERNET);
+                }
+        });
+    }
+    
 	
 	function exibirQRCodeInfo(id){
 
