@@ -129,8 +129,8 @@
 
 <script>
 
-	var DOMINIO = "http://fislgames-exmo.rhcloud.com";
-    //var DOMINIO = "http://192.168.0.162:9000";
+	//var DOMINIO = "http://fislgames-exmo.rhcloud.com";
+    var DOMINIO = "http://192.168.0.162:9000";
     
 	var MSG_SEM_INTERNET  = "Sem conexão internet." +
 							"Verifique sua configuração de rede e tente novamente mais tarde."
@@ -257,18 +257,13 @@
         }else{
             var texto = itens[3];
             var pontos = itens[4];
-            var a = itens[5];
-            var b = itens[6];
-            var c = itens[7];
-            var d = itens[8];
-            insertQRCode(id,texto,tipo,pontos,a,b,c,d,exibirQRCodeInfo);
+            var alternativas = textoQRCode.substring(textoQRCode.indexOf(itens[6]));
+            insertQRCode(id,texto,tipo,pontos,alternativas,exibirQRCodeInfo);
         }
     }
     
     function obterQRCode(id){
         $.mobile.loading('show');
-        console.log("Vai buscar o qrcode: "+id);
-        console.log("URL: "+DOMINIO+"/qrcode/json/"+id+"?callback=?");
         $.jsonp({
                 "url": DOMINIO+"/qrcode/json/"+id+"?callback=?",
                 "success": function(response, textStatus) {
@@ -281,11 +276,8 @@
                         var tipo = response.tipo;
                         var texto = response.texto;
                         var pontos = response.pontuacao;
-                        var a = response.resposta;
-                        var b = response.alternativa1;
-                        var c = response.alternativa2;
-                        var d = response.alternativa3;
-                        insertQRCode(id,texto,tipo,pontos,a,b,c,d,exibirQRCodeInfo);                
+                        var alternativas = response.alternativas;
+                        insertQRCode(id,texto,tipo,pontos,alternativas,exibirQRCodeInfo);                
                     }
 	        	},
                 "error": function(xOptions, textStatus) {
@@ -298,15 +290,17 @@
     
 	
 	function exibirQRCodeInfo(id){
-
+        console.log("Obtendo o QRCode: "+id);
 		getQRCodeById(id,function(qrCode){
 			
+            console.log("Montando a tela para exibir o QRCode: "+qrCode.tipo);
+                      
 			if(qrCode.tipo == 'DESAFIO' ){
 				$("#pergunta").text(qrCode.texto);
 				$("#qrCodeId").val(qrCode.id);
 				showDialog("pageQRCodeDesafio");
 			}else if(qrCode.tipo == 'DESAFIOME' ){
-				
+
 				$("#qrCodeIdME").val(qrCode.id);
 				
 				var alternativasContainer = $("#formDesafioME");
@@ -314,25 +308,20 @@
 				fieldset.html("");
 				fieldset.append( $('<legend>').html(qrCode.texto) );
 				
-				if(qrCode.alternativaA != "N/A"){
-					fieldset.append( $('<input type="radio" />').attr('name', 'respostaME').attr('value', qrCode.alternativaA).attr('id', 'alternativaA') );
-            		fieldset.append( $('<label>').attr('for', 'alternativaA').html(qrCode.alternativaA) );
-				}
+                var alternativas = qrCode.alternativas.split("#");
+                for (var i = 0; i < alternativas.length; i++) {
+                      console.log("Alternativa: "+alternativas[i]);
+                      if(alternativas[i].length>0){
+                        fieldset.append( $('<input type="radio" />')
+                                      .attr('name', 'respostaME')
+                                      .attr('value', alternativas[i])
+                                      .attr('id', 'alternativa'+i) );
+                        fieldset.append( $('<label>')
+                                      .attr('for', 'alternativa'+i)
+                                      .html(alternativas[i]) );
+                      }
+                }
 				
-				if(qrCode.alternativaB != "N/A"){
-					fieldset.append( $('<input type="radio" />').attr('name', 'respostaME').attr('value', qrCode.alternativaB).attr('id', 'alternativaB') );
-            		fieldset.append( $('<label>').attr('for', 'alternativaB').html(qrCode.alternativaB) );
-				}
-				
-				if(qrCode.alternativaC != "N/A"){
-					fieldset.append( $('<input type="radio" />').attr('name', 'respostaME').attr('value', qrCode.alternativaC).attr('id', 'alternativaC') );
-            		fieldset.append( $('<label>').attr('for', 'alternativaC').html(qrCode.alternativaC) );
-				}
-				
-				if(qrCode.alternativaD != "N/A"){
-					fieldset.append( $('<input type="radio" />').attr('name', 'respostaME').attr('value', qrCode.alternativaD).attr('id', 'alternativaD') );
-            		fieldset.append( $('<label>').attr('for', 'alternativaD').html(qrCode.alternativaD) );
-				}
 				alternativasContainer.trigger('create');
 				showDialog("pageQRCodeDesafioME");
 				
@@ -446,6 +435,8 @@
 		
 		var url = DOMINIO+"/usuario/criar/"+$("#email").val()+"/"+$("#nome").val()+"/"+$("#telefone").val()+"?callback=?";
 	
+        console.log(url);
+        
 	    $.jsonp({
 	    	"url": url,
 	        "success": function(response, textStatus) {
@@ -461,7 +452,9 @@
 	        },
 	        "error": function(xOptions, textStatus) {
                 $.mobile.loading('hide');
-	        	alert("Ocorreu um erro no Cadastramento do Usuário. " + MSG_SEM_INTERNET);
+	        	console.log(textStatus);
+                alert("Ocorreu um erro no Cadastramento do Usuário. " + MSG_SEM_INTERNET);
+                
 	        }
 	    });
 	}

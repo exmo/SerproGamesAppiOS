@@ -40,6 +40,14 @@
 		30A0434914DC770100060A13 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 30A0434614DC770100060A13 /* Localizable.strings */; };
 		30E5649213A7FCAF007403D8 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30E5649113A7FCAF007403D8 /* CoreMedia.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30FC414816E50CA1004E6F35 /* icon-72@2x.png */; };
+		39402CFB1795DBFF00728F27 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 39402CFA1795DBFF00728F27 /* icon.png */; };
+		39402CFD1795DD0E00728F27 /* icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 39402CFC1795DD0E00728F27 /* icon-72.png */; };
+		39402CFF1795DD1400728F27 /* icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39402CFE1795DD1400728F27 /* icon-72@2x.png */; };
+		39402D011795DD2500728F27 /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 39402D001795DD2500728F27 /* Default-Portrait@2x~ipad.png */; };
+		39402D031795DD2B00728F27 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 39402D021795DD2B00728F27 /* Default-Portrait~ipad.png */; };
+		39402D051795DD3400728F27 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39402D041795DD3300728F27 /* Default-568h@2x.png */; };
+		39402D071795DD3D00728F27 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39402D061795DD3D00728F27 /* Default@2x.png */; };
+		39402D091795DD4500728F27 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 39402D081795DD4500728F27 /* Default.png */; };
 		39ACD67B17904CFD00C79E65 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39ACD67A17904CFD00C79E65 /* CoreVideo.framework */; };
 		39ACD67D17904D2B00C79E65 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 39ACD67C17904D2B00C79E65 /* libiconv.dylib */; };
 		39ACD68317904DCB00C79E65 /* CDVBarcodeScanner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 39ACD67E17904DCB00C79E65 /* CDVBarcodeScanner.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -111,6 +119,14 @@
 		30E5649113A7FCAF007403D8 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		30FC414816E50CA1004E6F35 /* icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72@2x.png"; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* SerproGamesApp-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SerproGamesApp-Prefix.pch"; sourceTree = "<group>"; };
+		39402CFA1795DBFF00728F27 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		39402CFC1795DD0E00728F27 /* icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72.png"; sourceTree = "<group>"; };
+		39402CFE1795DD1400728F27 /* icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72@2x.png"; sourceTree = "<group>"; };
+		39402D001795DD2500728F27 /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
+		39402D021795DD2B00728F27 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
+		39402D041795DD3300728F27 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		39402D061795DD3D00728F27 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		39402D081795DD4500728F27 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		39ACD67A17904CFD00C79E65 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		39ACD67C17904D2B00C79E65 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		39ACD67E17904DCB00C79E65 /* CDVBarcodeScanner.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CDVBarcodeScanner.mm; sourceTree = "<group>"; };
@@ -200,6 +216,14 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				39402D081795DD4500728F27 /* Default.png */,
+				39402D061795DD3D00728F27 /* Default@2x.png */,
+				39402D041795DD3300728F27 /* Default-568h@2x.png */,
+				39402D021795DD2B00728F27 /* Default-Portrait~ipad.png */,
+				39402D001795DD2500728F27 /* Default-Portrait@2x~ipad.png */,
+				39402CFE1795DD1400728F27 /* icon-72@2x.png */,
+				39402CFC1795DD0E00728F27 /* icon-72.png */,
+				39402CFA1795DBFF00728F27 /* icon.png */,
 				F840E1F0165FE0F500CFE078 /* config.xml */,
 				301BF56E109A69640062928A /* www */,
 				301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */,
@@ -422,6 +446,14 @@
 				39ACD68417904DCB00C79E65 /* README in Resources */,
 				39ACD68517904DCB00C79E65 /* scannerOverlay.xib in Resources */,
 				39ACD6881790842D00C79E65 /* icon@2x.png in Resources */,
+				39402CFB1795DBFF00728F27 /* icon.png in Resources */,
+				39402CFD1795DD0E00728F27 /* icon-72.png in Resources */,
+				39402CFF1795DD1400728F27 /* icon-72@2x.png in Resources */,
+				39402D011795DD2500728F27 /* Default-Portrait@2x~ipad.png in Resources */,
+				39402D031795DD2B00728F27 /* Default-Portrait~ipad.png in Resources */,
+				39402D051795DD3400728F27 /* Default-568h@2x.png in Resources */,
+				39402D071795DD3D00728F27 /* Default@2x.png in Resources */,
+				39402D091795DD4500728F27 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +540,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Robson Ximenes (HYVXQ6XZ2Q)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Robson Ximenes (HYVXQ6XZ2Q)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -518,6 +552,8 @@
 				INFOPLIST_FILE = "SerproGamesApp/SerproGamesApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = SerproGamesApp;
+				PROVISIONING_PROFILE = "ED679414-0DB8-40B8-A6C5-AC225514F21D";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "ED679414-0DB8-40B8-A6C5-AC225514F21D";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -527,6 +563,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Robson Ximenes (HYVXQ6XZ2Q)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Robson Ximenes (HYVXQ6XZ2Q)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SerproGamesApp/SerproGamesApp-Prefix.pch";
@@ -535,6 +573,8 @@
 				INFOPLIST_FILE = "SerproGamesApp/SerproGamesApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = SerproGamesApp;
+				PROVISIONING_PROFILE = "ED679414-0DB8-40B8-A6C5-AC225514F21D";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "ED679414-0DB8-40B8-A6C5-AC225514F21D";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
