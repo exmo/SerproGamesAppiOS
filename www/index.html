@@ -309,6 +309,7 @@
 				fieldset.append( $('<legend>').html(qrCode.texto) );
 				
                 var alternativas = qrCode.alternativas.split("#");
+                alternativas = shuffle(alternativas);
                 for (var i = 0; i < alternativas.length; i++) {
                       console.log("Alternativa: "+alternativas[i]);
                       if(alternativas[i].length>0){
@@ -463,6 +464,11 @@
 	    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA	-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 	    return re.test(email);
 	}
+                      
+    function shuffle(o){ //v1.0
+        for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+            return o;
+    }
                       
 </script>
 <script src="js/db.js"></script>
