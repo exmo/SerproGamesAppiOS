@@ -37,21 +37,23 @@
         background-color: #1a1a1a;
         margin-bottom: 0;
         padding-bottom:0;
+        
     }
     
     .navbar-black ul{
         height: 40px;
+        
     }
     
     .navbar-black ul li{
         text-align: center;
-        list-style: none; display: inline-block; 
     }
     
     .navbar-black ul li img{
         height: 20px;
         margin: 0;
         padding: 9px 18px 9px; text-decoration: none;
+
     }
     
     .pontos{
@@ -66,7 +68,7 @@
         max-height: 100%;
         
         margin: 0;
-        padding: 9px 18px 9px; text-decoration: none;
+        padding: 0px 18px 9px; text-decoration: none;
     }
     
     .qr-button {
@@ -87,11 +89,13 @@
     }
     
     .pontuacao{
-        font-size: 21px;
+        font-size: 20px;
+        vertical-align: bottom;
     }
     
     .texto-pontuacao{
-        font-size: 7px;
+        font-size: 10px;
+        vertical-align: top;
     }
     
     .tab-content{
@@ -127,7 +131,7 @@
         background-size: 100%;
         background-repeat:no-repeat;
         display: block;
-        margin: 20px 20px 20px 20px;
+        margin: 0px 20px 20px 20px;
         padding-top: 20px;
         
     }
@@ -144,7 +148,7 @@
     }
     
     .tabelaQRcode tr td{
-        border:3px solid white;
+        
     }
     
     .pergunta{
@@ -152,7 +156,10 @@
         font-family: Arial Bold;
         color: #666666;
         padding-left: 10px;
-        border-right: 0px;
+        border-top:3px solid white;
+        border-bottom:3px solid white;
+        border-left:3px solid white;
+        
     }
     
     .correto{
@@ -174,9 +181,13 @@
     .seta{
         width: 20px;
         text-align: center;
+        border-top:3px solid white;
+        border-bottom:3px solid white;
+        border-right:3px solid white;
     }
     
     .correto, .errado, .info, .semresposta{
+        border:3px solid white;
         width: 40px;
         text-align: center;
         font-size: 23px;
@@ -185,8 +196,9 @@
     }
     
     .tabelaRanking{
-        width: 90%;
+        width: 100%;
         align: center;
+        padding-top: 20px;
     }
     
     .tabelaRanking tr{
@@ -196,7 +208,7 @@
     
     .tabelaRanking tr td{
         border-bottom: 1px solid #cccccc;
-        font-size: 23px;
+        font-size: 16px;
         font-family: Arial Bold;
         color: #4d4d4d;
     }
@@ -216,10 +228,23 @@
     }
     
     .tabelaVoce{
-        width: 90%;
+        width: 100%;
         align: center;
         color: white;
         background-color: #4981af;
+    }
+    
+    
+    .tabelaProgresso{
+        border-collapse: collapse;
+    }
+    
+    .tabelaProgresso tr td{
+        border:8px solid #dbdbdb;
+    }
+    
+    .tabelaProgresso tr td.verde{
+        background-color: #87deaa;
     }
     
 </style>
@@ -237,9 +262,12 @@
                 <li class="tabLink" data-tab-class="tab2"><img src="img/info_ico.png" ></li>
                 <li class="tabLink" data-tab-class="tab3"><img src="img/trofeu_ico.png" ></li>
                 <li class="tabLink" data-tab-class="tab4"><img src="img/user_ico.png" ></li>
-                <li class="tabLink pontos" data-tab-class="tab5">
-                    <b id="pontuacao" class="pontuacao">300</b>
-                    <i class="texto-pontuacao">pontos</i>
+                <li class="tabLink pontos" data-tab-class="tab5" style="text-align: center;">
+                    
+                    <table width="100%" style="border-spacing:0;">
+                        <tr><td><b id="pontuacao" class="pontuacao">300</b></td></tr>
+                        <tr><td><i class="texto-pontuacao">pontos</i></td></tr>
+                    </table>
                 </li>
             </ul>
         </div>
@@ -248,27 +276,29 @@
 		<div data-role="content" class="tab-content">
 			
                 <div id="tab1" class="tab1 tab">
-                    <div data-role="content">
+                    <div data-role="content" style="vertical-align: middle; ">
                         <a id="btLerQRCode" data-role="button" data-theme="qr-button">LER QRCODE</a>
                     </div>
 
-                        <div class="area-texto">
-                            <div class="texto-qrcode">
-                                <h1>Ajuda?</h1>
-                                <p>Aponte a lente da câmera de seu smartphone para o folder ou um banner que possui o QR-Code que você queira ler.
-                                </p>
+                    <div class="area-texto">
+                        <div class="texto-qrcode" style="font-size: 14px;">
+                            <b style="font-size: 18px;">Ajuda?</b>
+                            <p>Aponte a lente da câmera de seu smartphone para o folder ou um banner que possui o QR-Code que você queira ler.
+                            </p>
                             
-                                <p>
-                                    Caso o aplicativo retorne algum erro na leitura do QR Code, procure um dos responsáveis pelo jogo que eles irão te ajudar a encontrar uma solução.
-                                </p>
-                            </div>
+                            <p>
+                            Caso o aplicativo retorne algum erro na leitura do QR Code, procure um dos responsáveis pelo jogo que eles irão te ajudar a encontrar uma solução.
+                            </p>
                         </div>
+                    </div>
 
+                    
                 </div>
                 <div id="tab2" class="tab2 tab ui-screen-hidden">
-                    <div data-role="content">
-                        <h1>Perguntas e respostas</h1>
-                        <p>Para reler uma dica ou responder uma pergunta em aberto, clique na mesma</p>
+                    <div data-role="content" style="color: #1a1a1a;">
+                        <b style="font-size: 18px;">Perguntas e respostas</b>
+                        <p style="font-size: 15px;">Para reler uma dica ou responder uma pergunta em aberto, clique na mesma</p>
+                    </div>
                         <table  class="tabelaQRcode">
                             <tr>
                                 <td class="correto">100</td>
@@ -291,12 +321,11 @@
                                 <td class="seta"><img src="img/seta.png" /></td>
                             </tr>
                         </table>
-                    </div>
+                    
                 </div>
                 <div id="tab3" class="tab3 tab ui-screen-hidden" style="background-color: #d6d6d6; align: center;">
                     <div data-role="content">
-                    <h1>Ranking Geral</h1>
-                    
+                    <b style="font-size: 18px;">Ranking Geral</b>
                     <table  class="tabelaRanking">
                         <tr>
                             <td class="posicao">1º</td>
@@ -336,13 +365,71 @@
                 </div>
                 <div id="tab4" class="tab4 tab ui-screen-hidden">
                     <div data-role="content">
-                    Perfil
+                        <table width="98%">
+                            <tr>
+                                <td width="50%" style="border-right: 1px solid #cccccc;">
+                                    <b style="font-size: 16px;">
+                                        Robson<br />
+                                        Ximenes<br />
+                                    </b>
+                                    <span style="font-size: 9px; color: #cccccc;">robsonximenes@gmail.com</span>
+                                </td>
+                                <td style="text-align: right;"><img src="img/trofeu.png" /></td>
+                                <td width="80px" style="text-align: right;">
+                                    <b style="font-size: 29px;">2º</b><br />
+                                    <span style="font-size: 13px; color: #cccccc;">no ranking</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div style="width: 100%; height: 100%; background-color: #e6e6e6; border-top: 1px solid #cccccc;">
+                        <table width="98%" style="padding: 25px 15px 20px 15px;">
+                            <tr>
+                                <td height="39px">
+                                    <b style="font-size: 21px;">
+                                        Você no jogo:
+                                    </b>
+                                </td>
+                                <td width="80px" style="text-align: right;">
+                                    <b style="color: #b3b3b3;font-size: 24px;">90%</b><br />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <table class="tabelaProgresso" width="100%">
+                                        <tr style="height: 39px;">
+                                            <td class="verde"></td>
+                                            <td class="verde"></td>
+                                            <td class="verde"></td>
+                                            <td class="verde"></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="text-align: right;">
+                                    <span style="color: #cccccc;">progresso</span>
+                                </td>
+                            </tr>
+                        </table>
+                        <br />
+                        <div height="100%"></div>
+                        <div style="border-top: 1px solid #cccccc;">
+                            <table style="padding: 25px 15px 20px 15px;">
+                                <tr>
+                                    <td width="80%" style="text-align: right;font-size: 17px; color:#808080">Compartilhar conquistas:</td>
+                                    <td width="40px" style="text-align: center;"><img src="img/facebook.png" /></td>
+                                    <td width="40px" style="text-align: center;"><img src="img/twitter.png" /></td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
                 <div id="tab5" class="tab5 tab ui-screen-hidden">
                     <div data-role="content">
-                        <h1>Pergunta</h1>
-                        <p>
+                        <b style="font-size: 18px;">Pergunta</b>
+                        <p style="font-size: 15px;">                  
                         Qual a empresa, vinculada ao Ministério da Fazenda, cujo negócio é a prestação de serviços em Tecnologia da Informação e Comunicação para o setro público e é considerada uma das maiores organizações públicas de TI do mundo?
                         </p>
                         <input type="text" />
@@ -355,7 +442,7 @@
 		</div>
 	</div>
 	
-	    
+    
 </body>
 
 <script>
