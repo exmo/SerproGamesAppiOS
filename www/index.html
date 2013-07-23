@@ -24,13 +24,7 @@
 <style type="text/css" >
     
     
-    .tab-content{
-        width:100%;
-        height:100%;
-        background-color:white;
-        position: absolute;
-        padding:0px 0px 0px 0px;
-    }
+    
  
     .ui-header{
         background-image: url("img/header_background.png");
@@ -41,6 +35,8 @@
     
     .navbar-black{
         background-color: #1a1a1a;
+        margin-bottom: 0;
+        padding-bottom:0;
     }
     
     .navbar-black ul{
@@ -49,11 +45,13 @@
     
     .navbar-black ul li{
         text-align: center;
-        line-height:40px;
+        list-style: none; display: inline-block; 
     }
     
     .navbar-black ul li img{
-        height: 24px;
+        height: 20px;
+        margin: 0;
+        padding: 9px 18px 9px; text-decoration: none;
     }
     
     .pontos{
@@ -66,6 +64,9 @@
         min-height: 100%;
         max-width: 100%;
         max-height: 100%;
+        
+        margin: 0;
+        padding: 9px 18px 9px; text-decoration: none;
     }
     
     .qr-button {
@@ -78,38 +79,149 @@
         font-family: Arial Bold;
         font-size: 20px;
     }
-    .ui-btn-hover-qr-button {
+    .ui-btn-hover-qr-button, .ui-btn-down-qr-button {
         background-color: #004e8d;
         color: #FFFFFF;
         font-family: Arial Bold;
         font-size: 20px;
-    }
-    .ui-btn-down-qr-button {
-        background-color: #004e8d;
-        color: #FFFFFF;
-        font-family: Arial Bold;
-        font-size: 20px;
-    }
-    
-    .texto-qrcode{
-        background-image: url("img/qrcode_background.png");
-        background-size: 100%;
-        background-repeat:no-repeat;
-        height: 90%;
-        position: absolute;
-        padding:0px 5px 0px 0px;
-        margin: 0px 0px 0px 0px;
-        width: 100%;
     }
     
     .pontuacao{
-        font-size: 23px;
+        font-size: 21px;
     }
     
     .texto-pontuacao{
-        font-size: 9px;
+        font-size: 7px;
     }
+    
+    .tab-content{
+        width:100%;
+        min-width:100%;
+        height:100%;
+        position: absolute;
+        padding:0px 0px 0px 0px;
+    }
+    
+    .tab{
+        width:98%;
+        min-width:100%;
+        height:100%;
+        background-color:white;
+    }
+    
+    .area-texto{
+        height: 100%;
+        width: 100%;
+        min-width:100%;
+        min-height:100%;
+        background-color: #d6d6d6;
+        display: block;
+    }
+    
+    .texto-qrcode{
+        height: 100%;
+        width: 90%;
+        min-width:90%;
+        min-height:100%;
+        background-image: url("img/qrcode_background.png");
+        background-size: 100%;
+        background-repeat:no-repeat;
+        display: block;
+        margin: 20px 20px 20px 20px;
+        padding-top: 20px;
         
+    }
+    
+    .tabelaQRcode{
+        width: 100%;
+        background-color: #cccccc;
+        border-collapse: collapse;
+    }
+    
+    .tabelaQRcode tr{
+        min-height: 39px;
+        height: 39px;
+    }
+    
+    .tabelaQRcode tr td{
+        border:3px solid white;
+    }
+    
+    .pergunta{
+        font-size: 17px;
+        font-family: Arial Bold;
+        color: #666666;
+        padding-left: 10px;
+        border-right: 0px;
+    }
+    
+    .correto{
+        background-color: #2ca05a;
+    }
+    
+    .errado{
+        background-color: #d35f5f;
+    }
+    
+    .semresposta{
+        background-color: #808080;
+    }
+    
+    .info{
+        background-color: #3771c8;
+    }
+    
+    .seta{
+        width: 20px;
+        text-align: center;
+    }
+    
+    .correto, .errado, .info, .semresposta{
+        width: 40px;
+        text-align: center;
+        font-size: 23px;
+        font-family: Arial Bold;
+        color: white;
+    }
+    
+    .tabelaRanking{
+        width: 90%;
+        align: center;
+    }
+    
+    .tabelaRanking tr{
+        min-height: 39px;
+        height: 39px;
+    }
+    
+    .tabelaRanking tr td{
+        border-bottom: 1px solid #cccccc;
+        font-size: 23px;
+        font-family: Arial Bold;
+        color: #4d4d4d;
+    }
+    
+    .posicao{
+        width: 40px;
+        text-align: center;   
+    }
+    
+    .nome{
+        padding-left: 10px;
+    }
+    
+    .total{
+        width: 40px;
+        text-align: center;
+    }
+    
+    .tabelaVoce{
+        width: 90%;
+        align: center;
+        color: white;
+        background-color: #4981af;
+    }
+    
 </style>
 
 </head>
@@ -125,7 +237,7 @@
                 <li class="tabLink" data-tab-class="tab2"><img src="img/info_ico.png" ></li>
                 <li class="tabLink" data-tab-class="tab3"><img src="img/trofeu_ico.png" ></li>
                 <li class="tabLink" data-tab-class="tab4"><img src="img/user_ico.png" ></li>
-                <li class="pontos">
+                <li class="tabLink pontos" data-tab-class="tab5">
                     <b id="pontuacao" class="pontuacao">300</b>
                     <i class="texto-pontuacao">pontos</i>
                 </li>
@@ -133,44 +245,111 @@
         </div>
         
         
-		<div data-role="content" class="tab-content" style="align: center; width: 100%;">
+		<div data-role="content" class="tab-content">
 			
-                <div id="tab1" class="tab1">
+                <div id="tab1" class="tab1 tab">
                     <div data-role="content">
-                        
                         <a id="btLerQRCode" data-role="button" data-theme="qr-button">LER QRCODE</a>
-                        
-                        <br />
-                        
-                        <div class="texto-qrcode">
-                            <h1>Ajuda?</h1>
-                            <p>Aponte a lente da câmera de seu smartphone para o folder ou um banner que possui o QR-Code que você queira ler.
-                            </p>
+                    </div>
+
+                        <div class="area-texto">
+                            <div class="texto-qrcode">
+                                <h1>Ajuda?</h1>
+                                <p>Aponte a lente da câmera de seu smartphone para o folder ou um banner que possui o QR-Code que você queira ler.
+                                </p>
                             
-                            <p>
-                                Caso o aplicativo retorne algum erro na leitura do QR Code, procure um dos responsáveis pelo jogo que eles irão te ajudar a encontrar uma solução.
-                            </p>
+                                <p>
+                                    Caso o aplicativo retorne algum erro na leitura do QR Code, procure um dos responsáveis pelo jogo que eles irão te ajudar a encontrar uma solução.
+                                </p>
+                            </div>
                         </div>
-                    </div>
+
                 </div>
-                <div id="tab2" class="tab2 ui-screen-hidden">
+                <div id="tab2" class="tab2 tab ui-screen-hidden">
                     <div data-role="content">
-                        
-                        <ul data-role="listview" data-theme="g" id="listaQRCode" data-inset="true">
-                            <li data-theme="c" data-role="list-divider"><a class="chanpage">&nbsp;http://www.serpro.gov.br</a>
-                                <span class="ui-li-count" style="color: #FFFFFF; background: #0000FF;">url</span>
-                            </li>
-                            <li data-theme="c" data-role="list-divider"><a class="chanpage">&nbsp;Desafio...</a>
-                                <span class="ui-li-count" style="background: #00FF00;">Pontos: 20</span>
-                            </li>
-                        </ul>
+                        <h1>Perguntas e respostas</h1>
+                        <p>Para reler uma dica ou responder uma pergunta em aberto, clique na mesma</p>
+                        <table  class="tabelaQRcode">
+                            <tr>
+                                <td class="correto">100</td>
+                                <td class="pergunta">texto texto texto texto texto texto texto texto texto</td>
+                                <td class="seta"><img src="img/seta.png" /></td>
+                            </tr>
+                            <tr>
+                                <td class="errado">100</td>
+                                <td class="pergunta">texto texto texto texto texto texto texto texto texto</td>
+                                <td class="seta"><img src="img/seta.png" /></td>
+                            </tr>
+                            <tr>
+                                <td class="semresposta">100</td>
+                                <td class="pergunta">texto texto texto texto texto texto texto texto texto</td>
+                                <td class="seta"><img src="img/seta.png" /></td>
+                            </tr>
+                            <tr>
+                                <td class="info">i</td>
+                                <td class="pergunta">texto texto texto texto texto texto texto texto texto</td>
+                                <td class="seta"><img src="img/seta.png" /></td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
-                <div id="tab3" class="tab3 ui-screen-hidden">
-                    Tab3
+                <div id="tab3" class="tab3 tab ui-screen-hidden" style="background-color: #d6d6d6; align: center;">
+                    <div data-role="content">
+                    <h1>Ranking Geral</h1>
+                    
+                    <table  class="tabelaRanking">
+                        <tr>
+                            <td class="posicao">1º</td>
+                            <td class="nome">Robgol Miserê</td>
+                            <td class="total">100</td>
+                        </tr>
+                        <tr>
+                            <td class="posicao">2º</td>
+                            <td class="nome">Robgol Miserê</td>
+                            <td class="total">100</td>
+                        </tr>
+                        <tr>
+                            <td class="posicao">3º</td>
+                            <td class="nome">Robgol Miserê</td>
+                            <td class="total">100</td>
+                        </tr>
+                        <tr>
+                            <td class="posicao">4º</td>
+                            <td class="nome">Robgol Miserê</td>
+                            <td class="total">100</td>
+                        </tr>
+                        <tr>
+                            <td class="posicao">5º</td>
+                            <td class="nome">Robgol Miserê</td>
+                            <td class="total">100</td>
+                        </tr>
+                    </table>
+                    <br /> <br />
+                    <table  class="tabelaVoce">
+                        <tr>
+                            <td class="posicao">1º</td>
+                            <td class="nome">Você</td>
+                            <td class="total">100</td>
+                        </tr>
+                    </table>
+                    </div>
                 </div>
-                <div id="tab4" class="tab4 ui-screen-hidden">
-                    Tab4
+                <div id="tab4" class="tab4 tab ui-screen-hidden">
+                    <div data-role="content">
+                    Perfil
+                    </div>
+                </div>
+                <div id="tab5" class="tab5 tab ui-screen-hidden">
+                    <div data-role="content">
+                        <h1>Pergunta</h1>
+                        <p>
+                        Qual a empresa, vinculada ao Ministério da Fazenda, cujo negócio é a prestação de serviços em Tecnologia da Informação e Comunicação para o setro público e é considerada uma das maiores organizações públicas de TI do mundo?
+                        </p>
+                        <input type="text" />
+                    
+                        <a data-role="button" data-theme="qr-button">Responder</a>
+                        <a data-role="button" data-theme="qr-button">Fechar</a>
+                    </div>
                 </div>
 
 		</div>
