@@ -247,10 +247,73 @@
         background-color: #87deaa;
     }
     
+    .fontAmarela{
+        font-size: 16px;
+        color: #ffd42a;
+        font-family: "Arial Bold", sans-serif;
+        align: center;
+    }
+    
+    
+    .logo-consegi{
+        height: 69px;
+        width: 100%;
+        background-color: white;
+        text-align: center;
+        vertical-align: middle;
+        position: relative;
+    }
+    
+    .logo-consegi img{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+    
+
+    
 </style>
 
 </head>
 <body>
+    
+    <div data-role="page" id="pageHome">
+		<div data-role="header" data-theme="b">
+			<h1>SERPRO GAME</h1>
+		</div>
+        <div style="background-color: #1a1a1a; height: 39px;">
+            <table width="100%" height: 100%; style="border-spacing:0;">
+                <tr>
+                    <td width="30px;">
+                        <img src="img/exclamacao.png" height="39px" style="padding:0 0 0 0; margin: 0 0 0 0;"/>
+                    </td>
+                    <td style="text-align: center; text-shadow: 0 0 0;">
+                        <b class="fontAmarela">Cadastre-se para participar</b>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="logo-consegi">
+            <div>
+                <img src="img/consegi-logo.png" />
+            </div>
+        </div>
+        
+        
+		<div data-role="content">
+            <input type="text" id="nome" value="" placeholder="Nome"/>
+            <input type="text" id="sobrenome" value="" placeholder="Sobrenome"/>
+            <input type="text" id="email" value="" placeholder="E-mail"/>
+            <input type="text" id="telefone" value="" placeholder="Telefone"/>
+            
+            <a data-role="button" data-theme="qr-button"><span style="color: #b3b3b3;font-size: 16px; !important">CADASTRAR</span></a>
+            
+        </div>
+    </div>
+    
     	
 	<div data-role="page" id="pageHome">
 		<div data-role="header" data-theme="b">
