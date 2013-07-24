@@ -140,13 +140,7 @@
 		$("#btnCadastrar").click(submeterCadastro);	
 		$("#btLerQRCode").click(scan);
 		$("#responder").click(enviarResposta);
-		$("#responderME").click(enviarRespostaME);
-//		$("#pageLista").on("pagebeforeshow", function(event){ 
-//			//executa da primeira vez, quando usuario ainda nao tem cadastro
-//			if(!hasValue(lsGet("email"))){
-//				changePage("pageCadastro");
-//			}
-//		});	
+		$("#responderME").click(enviarRespostaME);	
 				
 		$("#pageCadastro").on("pagebeforeshow", function(event){ 
 			$("#email").val(lsGet("email"));
