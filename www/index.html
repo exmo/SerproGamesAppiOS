@@ -359,7 +359,7 @@
 					}
 				} else { // info, url: azul
 					status = "info";
-					pontos = qr.tipo.toLowerCase();
+                   pontos = "i";//qr.tipo.substring(0,1).toLowerCase();
 				} 				
                 $("#tabelaQRcode").append("<tr onclick='exibirQRCodeInfo("+qr.id+")'><td class='"+status+"'>"+pontos+"</td><td class='pergunta'>"+qr.texto+"</td><td class='seta'><img src=\"img/seta.png\" /></td></tr>");
 			});
@@ -518,10 +518,22 @@
 	}
 	
 	function enviarResposta(){
-		if (!hasValue($("#resposta").val())) {
-			alert("Preencha a resposta!");
-			return false;
-		}
+        var resposta = $("#resposta").val();
+        
+        if($("#resposta").is(':visible')){
+            if (!hasValue(resposta)) {
+                alert("Preencha a resposta!");
+                return false;
+            }
+        }
+        
+        if($("#grupoRadioButton").is(':visible')){
+            resposta = $('input[name=respostaME]:checked').val();
+            if (!hasValue(resposta)) {
+                alert("Escolha uma alternativa");
+                return false;
+            }
+        }
 
 		if (!checkInternet()) {
 			return false;	
@@ -530,42 +542,6 @@
 		 $.mobile.loading('show');
 
 		var qrId = $("#qrCodeId").val();
-		$.jsonp({
-	    	"url": DOMINIO+"/desafio/"+qrId+"/"+ localStorage.email +"/"+$("#resposta").val()+"?callback=?",
-	        "success": function(response, textStatus) {
-	        	 $.mobile.loading('hide');
-	        	if (response.status = "OK") {	        		
-        			alert(response.msgRet);
-        			if (response.codRet == "OK") {
-	        			updateQRCode(qrId, true);
-					} else if (response.codRet == "ERRO-RE") {
-						updateQRCode(qrId, false);
-					}
-	        	}
-	        	$("#resposta").val("");
-	        	changePage("pageLista");
-	        },
-	        "error": function(xOptions, textStatus) {
-	        	 $.mobile.loading('hide');
-	        	alert("Ocorreu um erro no Envio da Resposta. " + MSG_SEM_INTERNET);
-	        }
-	    });
-	}
-	
-	function enviarRespostaME(){
-		var resposta = $('input[name=respostaME]:checked').val();
-		if (!hasValue(resposta)) {
-			alert("Escolha uma alternativa");
-			return false;
-		}
-		
-		if (!checkInternet()) {
-			return false;	
-		}
-		
-        $.mobile.loading('show');
-		var qrId = $("#qrCodeIdME").val();		
-		
 		$.jsonp({
 	    	"url": DOMINIO+"/desafio/"+qrId+"/"+ localStorage.email +"/"+resposta+"?callback=?",
 	        "success": function(response, textStatus) {
@@ -578,14 +554,18 @@
 						updateQRCode(qrId, false);
 					}
 	        	}
-	        	changePage("pageLista");
+	        	$("#resposta").val("");
+                
+                // vai para a lista de QRCodes
+                montaLista();
+	        	mudaTab($("#linkTab2"));
 	        },
 	        "error": function(xOptions, textStatus) {
-                $.mobile.loading('hide');
-				alert("Ocorreu um erro no Envio da Resposta " + MSG_SEM_INTERNET);
+	        	 $.mobile.loading('hide');
+	        	alert("Ocorreu um erro no Envio da Resposta. " + MSG_SEM_INTERNET);
 	        }
 	    });
-	}	
+	}
 	
 	function submeterCadastro() {
         console.log("Submetendo cadastro");
