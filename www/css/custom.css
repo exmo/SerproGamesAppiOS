@@ -218,9 +218,10 @@
     border:8px solid #dbdbdb;
 }
 
-.tabelaProgresso tr td.verde{
+.verde{
     background-color: #87deaa;
 }
+
 
 .fontAmarela{
     font-size: 16px;

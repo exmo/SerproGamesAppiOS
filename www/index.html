@@ -76,65 +76,20 @@
                         <p style="font-size: 15px;">Para reler uma dica ou responder uma pergunta em aberto, clique na mesma</p>
                     </div>
                         <table id="tabelaQRcode" class="tabelaQRcode">
-                            <tr>
-                                <td class="correto">100</td>
-                                <td class="pergunta">texto texto texto texto texto texto texto texto texto</td>
-                                <td class="seta"><img src="img/seta.png" /></td>
-                            </tr>
-                            <tr>
-                                <td class="errado">100</td>
-                                <td class="pergunta">texto texto texto texto texto texto texto texto texto</td>
-                                <td class="seta"><img src="img/seta.png" /></td>
-                            </tr>
-                            <tr>
-                                <td class="semresposta">100</td>
-                                <td class="pergunta">texto texto texto texto texto texto texto texto texto</td>
-                                <td class="seta"><img src="img/seta.png" /></td>
-                            </tr>
-                            <tr>
-                                <td class="info">i</td>
-                                <td class="pergunta">texto texto texto texto texto texto texto texto texto</td>
-                                <td class="seta"><img src="img/seta.png" /></td>
-                            </tr>
                         </table>
                     
                 </div>
                 <div id="tab3" class="tab3 tab ui-screen-hidden" style="background-color: #d6d6d6; align: center;">
                     <div data-role="content">
                     <b style="font-size: 18px;">Ranking Geral</b>
-                    <table  class="tabelaRanking">
-                        <tr>
-                            <td class="posicao">1º</td>
-                            <td class="nome">Robgol Miserê</td>
-                            <td class="total">100</td>
-                        </tr>
-                        <tr>
-                            <td class="posicao">2º</td>
-                            <td class="nome">Robgol Miserê</td>
-                            <td class="total">100</td>
-                        </tr>
-                        <tr>
-                            <td class="posicao">3º</td>
-                            <td class="nome">Robgol Miserê</td>
-                            <td class="total">100</td>
-                        </tr>
-                        <tr>
-                            <td class="posicao">4º</td>
-                            <td class="nome">Robgol Miserê</td>
-                            <td class="total">100</td>
-                        </tr>
-                        <tr>
-                            <td class="posicao">5º</td>
-                            <td class="nome">Robgol Miserê</td>
-                            <td class="total">100</td>
-                        </tr>
+                    <table id="tabelaRanking" class="tabelaRanking">    
                     </table>
                     <br /> <br />
                     <table  class="tabelaVoce">
                         <tr>
-                            <td class="posicao">1º</td>
+                            <td class="posicao"><span id="rankingPosicao">1</span>º</td>
                             <td class="nome">Você</td>
-                            <td class="total">100</td>
+                            <td class="total" id="rankingPontuacao">100</td>
                         </tr>
                     </table>
                     </div>
@@ -145,14 +100,14 @@
                             <tr>
                                 <td width="50%" style="border-right: 1px solid #cccccc;">
                                     <b style="font-size: 16px;">
-                                        Robson<br />
-                                        Ximenes<br />
+                                        <span id="spanNome"></span><br />
+                                        <span id="spanSobrenome"></span><br />
                                     </b>
-                                    <span style="font-size: 9px; color: #cccccc;">robsonximenes@gmail.com</span>
+                                    <span id="spanEmail" style="font-size: 9px; color: #cccccc;"></span>
                                 </td>
                                 <td style="text-align: right;"><img src="img/trofeu.png" /></td>
                                 <td width="80px" style="text-align: right;">
-                                    <b style="font-size: 29px;">2º</b><br />
+                                    <b style="font-size: 29px;"><span id="spanPosicao"></span>º</b><br />
                                     <span style="font-size: 13px; color: #cccccc;">no ranking</span>
                                 </td>
                             </tr>
@@ -167,19 +122,21 @@
                                     </b>
                                 </td>
                                 <td width="80px" style="text-align: right;">
-                                    <b style="color: #b3b3b3;font-size: 24px;">90%</b><br />
+                                    <b style="color: #b3b3b3;font-size: 24px;"><span id="spanPercentual"></span>%</b><br />
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <table class="tabelaProgresso" width="100%">
+                                    <table id="tabelaProgresso" class="tabelaProgresso" width="100%">
                                         <tr style="height: 39px;">
-                                            <td class="verde"></td>
-                                            <td class="verde"></td>
-                                            <td class="verde"></td>
-                                            <td class="verde"></td>
-                                            <td></td>
+                                            <td width=200 style="border: 2px solid silver;padding:none">
+                                                <hr id="percentualProgresso" style="margin: 0 0 0 0;background-color:#87deaa;height:39px; border:none;" align="left" width=0% />
+                                            </td>
                                         </tr>
+                                        
+                                        
+
+                                        
                                     </table>
                                 </td>
                             </tr>
@@ -204,29 +161,12 @@
                 </div>
                 <div id="tab5" class="tab5 tab ui-screen-hidden">
                     <div data-role="content">
-                        <b id="tipo" style="font-size: 18px;">Pergunta</b>
+                        <b id="tipo" style="font-size: 18px;"></b>
                         <p id="pergunta" style="font-size: 15px;">
-                        Qual a empresa, vinculada ao Ministério da Fazenda, cujo negócio é a prestação de serviços em Tecnologia da Informação e Comunicação para o setro público e é considerada uma das maiores organizações públicas de TI do mundo?
                         </p>
                         <input type="hidden" value="" id="qrCodeId" />
                         <input type="text" id="resposta"/>
                         <fieldset data-role="controlgroup" id="grupoRadioButton">
-                            <span id="alternativaASpan">
-                                <input type="radio" name="respostaME" id="alternativaA" value="1" checked="checked" />
-                                <label id="alternativaALabel" for="alternativaA" style="white-space:normal">Cat</label>
-                            </span>
-                            <span id="alternativaBSpan">
-                                <input type="radio" name="respostaME" id="alternativaB" value="2" />
-                                <label id="alternativaBLabel" for="alternativaB" style="white-space:normal">Cat</label>
-                            </span>
-                            <span id="alternativaCSpan">
-                                <input type="radio" name="respostaME" id="alternativaC" value="3"  />
-                                <label id="alternativaCLabel" for="alternativaC" style="white-space:normal">Cat</label>
-                            </span>
-                            <span id="alternativaDSpan">
-                                <input type="radio" name="respostaME" id="alternativaD" value="4"  />
-                                <label id="alternativaDLabel" for="alternativaD" style="white-space:normal">Cat</label>
-                            </span>
                         </fieldset>
                     
                         <a id="responder" data-role="button" data-theme="qr-button">Responder</a>
@@ -320,6 +260,7 @@
 			changePage("pageCadastro");
 		} else {
 			montaLista();
+            atualizarRankingPerfil();          
 		}
 	});	
 					
@@ -335,6 +276,50 @@
 		return window.localStorage.setItem(item,val);
 	}	
 
+    function atualizarRankingPerfil(){
+        console.log("Vai buscar o ranking");
+        var email = lsGet("email");
+        $.jsonp({
+            "url": DOMINIO+"/ranking/json/"+email+"?callback=?",
+            "success": function(response, textStatus) {
+                console.log("Obteve o JSON de ranking para o email: "+email);
+                $.mobile.loading('hide');
+                if (response.status == "ERROR") {
+                    alert(response.msgRet);
+                }else{
+                    var usuario = response.usuario;
+                    var ranking = response.ranking;
+                    // Tela de Perfil
+                    $("#spanNome").html(usuario.nome.split(" ")[0]);
+                    $("#spanSobrenome").html(usuario.nome.split(" ")[1]);
+                    $("#spanPosicao").html(usuario.posicao);
+                    $("#pontuacao").html(usuario.pontos);
+                    $("#spanEmail").html(usuario.email);
+                    $("#spanPercentual").html(usuario.progresso);
+                
+                    $("#percentualProgresso").attr("width",usuario.progresso+"%");
+                
+                    // Tela de Ranking
+                    $("#rankingPosicao").html(usuario.posicao);
+                    $("#rankingPontuacao").html(usuario.pontos);
+                
+                    $("#tabelaRanking").empty();
+                    $.each(ranking,function(i,qr){
+                           console.log(qr.toString());
+                        $("#tabelaRanking").append("<tr><td class='posicao'>"+ (i+1) +"º</td><td class='nome'>"+qr.nome+"</td><td class='total'>"+qr.pontos+"</td></tr>");
+                    });
+                
+                }
+            },
+            "error": function(xOptions, textStatus) {
+                console.log("Falha ao tentar obter o Ranking");
+                $.mobile.loading('hide');
+                alert("Ocorreu um erro na consulta ao Ranking. " + MSG_SEM_INTERNET);
+            }
+        });
+        
+    }
+    
 	function montaLista() {
 		var total = 0;
 		var email = lsGet("email");
@@ -555,6 +540,8 @@
 					}
 	        	}
 	        	$("#resposta").val("");
+                
+                atualizarRankingPerfil();
                 
                 // vai para a lista de QRCodes
                 montaLista();
