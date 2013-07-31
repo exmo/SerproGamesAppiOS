@@ -48,6 +48,8 @@
 		39402D051795DD3400728F27 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39402D041795DD3300728F27 /* Default-568h@2x.png */; };
 		39402D071795DD3D00728F27 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39402D061795DD3D00728F27 /* Default@2x.png */; };
 		39402D091795DD4500728F27 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 39402D081795DD4500728F27 /* Default.png */; };
+		3998730917A988EF00206DE1 /* Social.m in Sources */ = {isa = PBXBuildFile; fileRef = 3998730817A988EF00206DE1 /* Social.m */; };
+		3998730B17A98A2100206DE1 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3998730A17A98A2100206DE1 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		39ACD67B17904CFD00C79E65 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39ACD67A17904CFD00C79E65 /* CoreVideo.framework */; };
 		39ACD67D17904D2B00C79E65 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 39ACD67C17904D2B00C79E65 /* libiconv.dylib */; };
 		39ACD68317904DCB00C79E65 /* CDVBarcodeScanner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 39ACD67E17904DCB00C79E65 /* CDVBarcodeScanner.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -127,6 +129,9 @@
 		39402D041795DD3300728F27 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		39402D061795DD3D00728F27 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		39402D081795DD4500728F27 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		3998730717A988EF00206DE1 /* Social.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Social.h; sourceTree = "<group>"; };
+		3998730817A988EF00206DE1 /* Social.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Social.m; sourceTree = "<group>"; };
+		3998730A17A98A2100206DE1 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		39ACD67A17904CFD00C79E65 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		39ACD67C17904D2B00C79E65 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		39ACD67E17904DCB00C79E65 /* CDVBarcodeScanner.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CDVBarcodeScanner.mm; sourceTree = "<group>"; };
@@ -149,6 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3998730B17A98A2100206DE1 /* Social.framework in Frameworks */,
 				39ACD67D17904D2B00C79E65 /* libiconv.dylib in Frameworks */,
 				39ACD67B17904CFD00C79E65 /* CoreVideo.framework in Frameworks */,
 				5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */,
@@ -216,6 +222,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				3998730A17A98A2100206DE1 /* Social.framework */,
 				39402D081795DD4500728F27 /* Default.png */,
 				39402D061795DD3D00728F27 /* Default@2x.png */,
 				39402D041795DD3300728F27 /* Default-568h@2x.png */,
@@ -301,6 +308,8 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				3998730717A988EF00206DE1 /* Social.h */,
+				3998730817A988EF00206DE1 /* Social.m */,
 				39ACD67E17904DCB00C79E65 /* CDVBarcodeScanner.mm */,
 				39ACD67F17904DCB00C79E65 /* README */,
 				39ACD68017904DCB00C79E65 /* scannerOverlay.xib */,
@@ -486,6 +495,7 @@
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				39ACD68317904DCB00C79E65 /* CDVBarcodeScanner.mm in Sources */,
 				39ACD68617904DCB00C79E65 /* zxing-all-in-one.cpp in Sources */,
+				3998730917A988EF00206DE1 /* Social.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,8 +562,8 @@
 				INFOPLIST_FILE = "SerproGamesApp/GameLivreApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "Game Livre";
-				PROVISIONING_PROFILE = "ED679414-0DB8-40B8-A6C5-AC225514F21D";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "ED679414-0DB8-40B8-A6C5-AC225514F21D";
+				PROVISIONING_PROFILE = "592FE9D3-32F6-4FEC-903D-520717B1F494";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "592FE9D3-32F6-4FEC-903D-520717B1F494";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -573,8 +583,8 @@
 				INFOPLIST_FILE = "SerproGamesApp/GameLivreApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "Game Livre";
-				PROVISIONING_PROFILE = "ED679414-0DB8-40B8-A6C5-AC225514F21D";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "ED679414-0DB8-40B8-A6C5-AC225514F21D";
+				PROVISIONING_PROFILE = "592FE9D3-32F6-4FEC-903D-520717B1F494";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "592FE9D3-32F6-4FEC-903D-520717B1F494";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

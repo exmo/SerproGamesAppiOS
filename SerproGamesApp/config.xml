@@ -113,6 +113,9 @@
     <feature name="org.apache.cordova.barcodeScanner">
         <param name="ios-package" value="CDVBarcodeScanner"/>
     </feature>
+    <feature name="Social">
+        <param name="ios-package" value="Social"/>
+    </feature>
     
     <!-- Deprecated plugins element. REmove in 3.0 -->
     <plugins>
