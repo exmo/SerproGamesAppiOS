@@ -1,0 +1,3 @@
+[submodule "SerproGamesApp/www"]
+	path = SerproGamesApp/www
+	url = https://github.com/exmo/GameLivreWWW.git
